@@ -6,6 +6,7 @@ import Schedule from './Components/Schedule';
 import AddSchedule from './Components/AddSchedule';
 import Login from './Components/Login';
 import Home from './Components/Home';
+import AdminLogin from './Components/AdminLogin';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Routes>
           <Routes>
             <Route path='/addSchedule' element={<AddSchedule/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/hidden/admin/login' element={<AdminLogin/>}/>
           </Routes>
       </Router>
   );

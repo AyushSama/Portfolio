@@ -27,7 +27,6 @@ export default function Login() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "auth-token": localStorage.getItem("auth-token"),
                 },
                 body: JSON.stringify({
                     email: email,
@@ -60,9 +59,7 @@ export default function Login() {
                 }),
             });
             let ele = await response.json();
-            setAuthToken(ele.authToken);
-            localStorage.setItem("auth-token", ele.authToken);
-            console.log(ele);
+            console.log(ele.message);
         } catch (error) {
             alert(error);
         }

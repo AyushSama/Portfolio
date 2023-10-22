@@ -32,15 +32,7 @@ router.post(
                 email: req.body.email,
                 password: secPass,
             });
-
-            //Signing the data with jsonwebtoken
-            const data = {
-                user: {
-                    id: user.id,
-                },
-            };
-            var authToken = jwt.sign(data, "^$&%*^(&)&(^%^%&%@^$#&%*$%*");
-            res.send({ message:"User Created , Now please Login!" , authToken });
+            res.send({ message:"User Created , Now please Login!"});
         } catch (error) {
             res.status(400).send({message:"INTERNAL SERVER ERROR"});
             console.log(error);
@@ -77,7 +69,14 @@ router.post(
                     message: "Enter Valid Credentials!",
                 });
             }
-            res.send({ message:"Login Success!!"});
+            //Signing the data with jsonwebtoken
+            const data = {
+                user: {
+                    id: user.id,
+                },
+            };
+            var authToken = jwt.sign(data, "^$&%*^(&)&(^%^%&%@^$#&%*$%*");
+            res.send({ message:"Login Success!!" , authToken });
         } catch (error) {
             res.status(400).send({message:"INTERNAL SERVER ERROR"});
             console.log(error);
