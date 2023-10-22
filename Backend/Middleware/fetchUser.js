@@ -8,13 +8,7 @@ const isAdmin = async (req, res, next) => {
     try {
         const data = jwt.verify(token, "^$&%*^(&)&(^%^%&%@^$#&%*$%*");
         req.user = data.user;
-        if(data.user && data.user.admin){
-            console.log(data)
-            next()
-        }
-        else{
-            res.status(401).send({message:"Nayyyyy...Access Denied!!"});
-        }
+        next()
     } catch (error) {
         res.status(401).send({message:"Access Denied!!"});
     }

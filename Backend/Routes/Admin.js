@@ -132,8 +132,14 @@ router.get("/deleteschedule/:id", fetchuser, async (req, res) => {
 
 router.get("/schedule", fetchuser, async (req, res) => {
     try {
-        const schedules = await Schedule.find({ user: req.user.id });
-        res.send(schedules);
+        if(req.user && req.user.admin){
+            const schedules = await Schedule.find({ user: req.user.id });
+            res.send(schedules);
+        }
+        else{
+            const schedules = await Schedule.find();
+            res.send(schedules);
+        }
     } catch (error) {
         res.status(400).send({ message: "INTERNAL SERVER ERROR" });
         console.log(error);
