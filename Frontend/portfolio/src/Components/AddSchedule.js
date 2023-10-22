@@ -27,7 +27,7 @@ export default function AddSchedule() {
     const handleOnSubmit = async(e)=> {
         e.preventDefault();
         try {
-            const apiUrl = "http://localhost:5000/api/admin/update/addschedule";
+            const apiUrl = "http://localhost:5000/api/admin/addschedule";
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {

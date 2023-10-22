@@ -78,7 +78,7 @@ router.post(
     }
 );
 
-router.get("/updateschedule/:id", fetchuser, async (req, res) => {
+router.post("/updateschedule/:id", fetchuser, async (req, res) => {
     try {
         const {title,description,venue,date} = req.body;
         let newSchedule = {}
@@ -123,7 +123,7 @@ router.get("/deleteschedule/:id", fetchuser, async (req, res) => {
             return res.status(407).send({ message: "Access Denied!!" });
         }
         schedule = await Schedule.findByIdAndDelete(req.params.id);
-        res.json({ Success: "Note has been deleted", schedule });
+        res.json({ message: "Note has been deleted", schedule });
     } catch (error) {
         res.status(400).send({ message: "INTERNAL SERVER ERROR" });
         console.log(error);
