@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const router = express.Router();
 const fetchuser = require("../Middleware/fetchUser.js");
+const fetchAdmin = require("../Middleware/fetchAdmin.js");
 const { body, validationResult } = require("express-validator");
 
 router.post(
@@ -51,7 +52,7 @@ router.post(
 
 router.post(
     "/addschedule",
-    fetchuser,
+    fetchAdmin,
     //Valid Checks
     [
         body("title").isLength({ min: 2 }),
@@ -78,7 +79,7 @@ router.post(
     }
 );
 
-router.post("/updateschedule/:id", fetchuser, async (req, res) => {
+router.post("/updateschedule/:id", fetchAdmin , async (req, res) => {
     try {
         const {title,description,venue,date} = req.body;
         let newSchedule = {}
@@ -111,7 +112,7 @@ router.post("/updateschedule/:id", fetchuser, async (req, res) => {
     }
 });
 
-router.get("/deleteschedule/:id", fetchuser, async (req, res) => {
+router.get("/deleteschedule/:id", fetchAdmin , async (req, res) => {
     try {
         let schedule = await Schedule.findById(req.params.id);
         if (!schedule) {
