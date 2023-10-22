@@ -50,7 +50,7 @@ router.post(
 );
 
 router.post(
-    "/update/addschedule",
+    "/addschedule",
     fetchuser,
     //Valid Checks
     [
@@ -78,7 +78,40 @@ router.post(
     }
 );
 
-router.get("/update/deleteschedule/:id", fetchuser, async (req, res) => {
+router.get("/updateschedule/:id", fetchuser, async (req, res) => {
+    try {
+        const {title,description,venue,date} = req.body;
+        let newSchedule = {}
+        if(title){
+            newSchedule.title  = title;
+        }
+        if(description){
+            newSchedule.description  = description;
+        }
+        if(venue){
+            newSchedule.venue  = venue;
+        }
+        if(date){
+            newSchedule.date  = date;
+        }
+        let schedule = await Schedule.findById(req.params.id);
+        if (!schedule) {
+            return res.status(404).send({ message: "Schedule Does Not Exist!" });
+        }
+        if (schedule.user.toString() != req.user.id) {
+            return res.status(407).send({ message: "Access Denied!!" });
+        }
+        schedule = await Schedule.findByIdAndUpdate(req.params.id,
+            { $set: newSchedule },
+            { new: true })
+        res.json({message:"Schedule Updated!!",schedule});
+    } catch (error) {
+        res.status(400).send({ message: "INTERNAL SERVER ERROR" });
+        console.log(error);
+    }
+});
+
+router.get("/deleteschedule/:id", fetchuser, async (req, res) => {
     try {
         let schedule = await Schedule.findById(req.params.id);
         if (!schedule) {
