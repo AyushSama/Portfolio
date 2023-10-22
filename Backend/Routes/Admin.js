@@ -42,7 +42,7 @@ router.post(
                 },
             };
             var authToken = jwt.sign(data, "^$&%*^(&)&(^%^%&%@^$#&%*$%*");
-            res.send({ authToken });
+            res.send({ message:"Admin Logged In!!" , authToken });
         } catch (error) {
             res.status(400).send({ message: "INTERNAL SERVER ERROR" });
             console.log(error);

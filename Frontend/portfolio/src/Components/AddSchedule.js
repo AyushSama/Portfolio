@@ -1,5 +1,4 @@
 import React , {useState} from "react";
-import "./AddSchedule.css";
 
 export default function AddSchedule() {
 
@@ -51,7 +50,7 @@ export default function AddSchedule() {
 
     return (
         <div>
-            <div class="container1">
+            <div class="container my-5" style={{width:'50%'}}>
                 <div class="form-body">
                     <div class="row">
                         <div class="form-holder">
@@ -64,7 +63,7 @@ export default function AddSchedule() {
                                         novalidate
                                         onSubmit={handleOnSubmit}
                                     >
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 my-3">
                                             <input
                                                 class="form-control"
                                                 type="text"
@@ -81,7 +80,7 @@ export default function AddSchedule() {
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 my-3">
                                             <input
                                                 class="form-control"
                                                 type="text"
@@ -98,7 +97,7 @@ export default function AddSchedule() {
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 my-3">
                                             <input
                                                 class="form-control"
                                                 type="text"

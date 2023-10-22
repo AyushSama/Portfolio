@@ -45,13 +45,13 @@ export default function ScheduleItem(props) {
 
     return (
         <div>
-            <div className="card my-3">
+            <div className="card my-3" style={{backgroundColor:'black'}}>
                 <div className="card-header d-flex bd-highlight mb-3">
                     <div className="me-auto p-2 bd-highlight">
                         {" "}
                         {props.title}
                     </div>
-                    <div className="btn p-2 bd-highlight">
+                    <div className="btn p-2 bd-highlight mx-2">
                         <span
                             onClick={handleDelete}
                             className="material-symbols-outlined  mx-1"
