@@ -23,7 +23,7 @@ export default function AdminLogin() {
         e.preventDefault();
         console.log(authToken)
         try {
-            const apiUrl = "https://shantivideo-7crh.onrender.com/api/admin/addadmin";
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/admin/addadmin`;
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {

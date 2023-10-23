@@ -7,7 +7,7 @@ export default function Schedule() {
 
     const updateSchedule = async () => {
         try {
-            const apiUrl = "https://shantivideo-7crh.onrender.com/api/admin/schedule";
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/admin/schedule`;
             const response = await fetch(apiUrl, {
                 method: "GET",
                 headers: {

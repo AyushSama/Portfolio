@@ -22,7 +22,7 @@ export default function Login() {
         e.preventDefault();
         console.log(authToken)
         try {
-            const apiUrl = "https://shantivideo-7crh.onrender.com/api/login";
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/login`;
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
@@ -46,7 +46,7 @@ export default function Login() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            const apiUrl = "https://shantivideo-7crh.onrender.com/api/createuser";
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/createuser`;
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {

@@ -26,7 +26,7 @@ export default function AddSchedule() {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         try {
-            const apiUrl = "https://shantivideo-7crh.onrender.com/api/admin/addschedule";
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/admin/addschedule`;
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {

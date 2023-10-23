@@ -28,7 +28,7 @@ export default function UpdateSchedule(props) {
         console.log(props._id);
         try {
             const id = props._id;
-            const apiUrl = `https://shantivideo-7crh.onrender.com/api/admin/updateschedule/${id}`;
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/admin/updateschedule/${id}`;
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
