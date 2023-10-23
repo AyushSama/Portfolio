@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ScheduleItem from "./ScheduleItem";
-import AddSchedule from "./AddSchedule";
 import { Link } from "react-router-dom";
 
 export default function Schedule() {
@@ -8,7 +7,7 @@ export default function Schedule() {
 
     const updateSchedule = async () => {
         try {
-            const apiUrl = "http://localhost:5000/api/admin/schedule";
+            const apiUrl = "https://shantivideo-7crh.onrender.com/api/admin/schedule";
             const response = await fetch(apiUrl, {
                 method: "GET",
                 headers: {

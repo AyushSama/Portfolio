@@ -22,7 +22,7 @@ export default function Login() {
         e.preventDefault();
         console.log(authToken)
         try {
-            const apiUrl = "http://localhost:5000/api/login";
+            const apiUrl = "https://shantivideo-7crh.onrender.com/api/login";
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
@@ -46,7 +46,7 @@ export default function Login() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            const apiUrl = "http://localhost:5000/api/createuser";
+            const apiUrl = "https://shantivideo-7crh.onrender.com/api/createuser";
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {

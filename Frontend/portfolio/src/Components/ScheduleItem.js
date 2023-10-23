@@ -6,7 +6,7 @@ export default function ScheduleItem(props) {
         e.preventDefault();
         try {
             const id = props._id;
-            const apiUrl = `http://localhost:5000/api/admin/deleteschedule/${id}`;
+            const apiUrl = `https://shantivideo-7crh.onrender.com/api/admin/deleteschedule/${id}`;
             const response = await fetch(apiUrl, {
                 method: "GET",
                 headers: {
