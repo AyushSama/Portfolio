@@ -1,29 +1,29 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 
 export default function AddSchedule() {
 
-    const [title , setTitle] = useState('');
-    const [venue, setVenue] = useState('');
-    const [desc , setDesc] = useState('');
-    const [date ,setDate] = useState('');
+    const [title, setTitle] = useState("");
+    const [venue, setVenue] = useState("");
+    const [desc, setDesc] = useState("");
+    const [date, setDate] = useState("");
 
-    const handleTitle = (event)=>{
+    const handleTitle = (event) => {
         setTitle(event.target.value);
-    }
+    };
 
-    const handleVenue = (event)=>{
+    const handleVenue = (event) => {
         setVenue(event.target.value);
-    }
+    };
 
-    const handleDesc = (event)=>{
+    const handleDesc = (event) => {
         setDesc(event.target.value);
-    }
+    };
 
-    const handleDate = (event)=>{
+    const handleDate = (event) => {
         setDate(event.target.value);
-    }
+    };
 
-    const handleOnSubmit = async(e)=> {
+    const handleOnSubmit = async (e) => {
         e.preventDefault();
         try {
             const apiUrl = "http://localhost:5000/api/admin/addschedule";
@@ -34,10 +34,10 @@ export default function AddSchedule() {
                     "auth-token": localStorage.getItem("auth-token"),
                 },
                 body: JSON.stringify({
-                    title:title,
+                    title: title,
                     description: desc,
-                    venue : venue,
-                    date : date
+                    venue: venue,
+                    date: date,
                 }),
             });
             let ele = await response.json();
@@ -46,11 +46,11 @@ export default function AddSchedule() {
         } catch (error) {
             alert(error);
         }
-    }
+    };
 
     return (
         <div>
-            <div class="container my-5" style={{width:'50%'}}>
+            <div class="container my-5" style={{ width: "50%" }}>
                 <div class="form-body">
                     <div class="row">
                         <div class="form-holder">
