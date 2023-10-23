@@ -12,8 +12,11 @@ body{
 	line-height: 1.7;
 	color: #c4c3ca;
 	background-color: #1f2029;
+  background-image: url('./Components/photographer.jpg');
+  background-size: cover;
 	overflow-x: hidden;
 }
+
 a {
 	cursor: pointer;
   transition: all 200ms linear;
