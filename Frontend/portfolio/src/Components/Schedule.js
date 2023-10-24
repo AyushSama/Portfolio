@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ScheduleItem from "./ScheduleItem";
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 
 export default function Schedule() {
     const [schedule, setSchedule] = useState([]);
 
     const updateSchedule = async () => {
+        if(!localStorage.getItem("auth-token")){
+            return alert("Kindly Login First!!");
+        }
         try {
             const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/admin/schedule`;
             const response = await fetch(apiUrl, {
@@ -36,6 +40,7 @@ export default function Schedule() {
                     </button>
                 </Link>
             </div>
+            <Spinner/>
             <div className="row">
                 {schedule.map &&
                     schedule.map((item, index) => (
