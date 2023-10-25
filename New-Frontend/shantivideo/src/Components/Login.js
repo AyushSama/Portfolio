@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Login() {
 
   return (
+	<>
 	<main class="main">
 	<div class="container1">
 		<section class="wrapper">
@@ -30,5 +31,6 @@ export default function Login() {
 		</section>
 	</div>
 </main>
+	</>
   )
 }

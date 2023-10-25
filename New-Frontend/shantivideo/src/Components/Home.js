@@ -7,15 +7,14 @@ export default function Home() {
 
   useEffect(()=>{
     a.updateAlert('success' , 'Welcome to the Home Page!!');
-    document.body.style.backgroundColor = '#424642';
     // eslint-disable-next-line
   },[])
 
   return (
-    <div className="container" style={{backdropFilter: 'blur(8px)'}}>
-        <h1 className='text-center my-5' style={{color:'white'}}>Hii I'm Anil Yadav!!</h1>
+    <div className="1" style={{backgroundColor:'#f1f5f9', height:'100vh'}}>
+        <h1 className='text-center' style={{color:'black'}}>Hii I'm Anil Yadav!!</h1>
 
-        <section id="services" style={{color:'white' ,fontSize:'20px'}}>
+        <section id="services" style={{color:'black' ,fontSize:'20px'}}>
         <h2>Our Services</h2>
         <ul>
             <li>Event Photography:  We specialize in event photography to capture the most significant moments of your special occasions. Our trained photographers have an eye for detail and a knack for capturing candid moments that you'll treasure forever.</li>
