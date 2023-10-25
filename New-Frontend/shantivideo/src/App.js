@@ -1,4 +1,5 @@
 import "./App.css";
+import Admin from "./Components/Admin";
 import Alert from "./Components/Alert";
 import Booking from "./Components/Booking";
 import ContactUs from "./Components/ContactUs";
@@ -25,6 +26,7 @@ function App() {
                         <Route path="/contactus" element={<ContactUs/>} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/signup" element={<SignUp/>} />
+                        <Route path="/admin" element={<Admin/>} />
                     </Routes>
                 </Router>
             </AlertState>
