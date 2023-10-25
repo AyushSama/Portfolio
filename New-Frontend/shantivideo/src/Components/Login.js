@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Styles/Login.css'
+import '../Styles/Auth.css'
 import { Link } from 'react-router-dom'
 
 export default function Login() {
