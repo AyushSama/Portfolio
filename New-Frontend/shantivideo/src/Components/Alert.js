@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AlertContext from '../Context/Alerts/AlertContext';
 
-export default function Alert(props) {
+export default function Alert() {
+
+  const a = useContext(AlertContext);
+
+  const capitalizeFirstLetter = (word) => {
+    if (word.length === 0) {
+      return word;
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
   return (
-    <div>
-        <div class={`alert alert-${props.type} alert-dismissible fade show`} role="alert">
-        <strong>{props.type} :</strong> {props.message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+    a.alert.type && <div>
+      <div className={`alert alert-${a.alert.type} alert-dismissible fade show`} role="alert">
+        <strong>{capitalizeFirstLetter(a.alert.type)} :</strong> {a.alert.message}
+      </div>
     </div>
   )
 }
