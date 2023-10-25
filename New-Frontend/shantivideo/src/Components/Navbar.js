@@ -17,9 +17,9 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light"   style={{backgroundColor:'#FCE09B' , color:'#186F65'}}>
+    <nav className="navbar navbar-expand-lg navbar-light border border-3"   style={{backgroundColor:'#F3F4ED' , color:'#186F65'}}>
   <div className="container-fluid">
-    <img className="navbar-brand" src={logo} alt={logo} style={{width:'85px'}}/>
+    <img className="navbar-brand" src={logo} alt={logo} style={{width:'60px'}}/>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -34,12 +34,15 @@ export default function Navbar() {
         <li className="nav-item">
           <Link id='timeline' className={`nav-link ${active==='Timeline'?'active':''}`} onClick={handleClick} to="/timeline"><strong>Timeline</strong></Link>
         </li>
+        <li className="nav-item">
+          <Link id='timeline' className={`nav-link ${active==='Contact Us'?'active':''}`} onClick={handleClick} to="/contactus"><strong>Contact Us</strong></Link>
+        </li>
       </ul>
       <form className="d-flex">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit"><strong>Search</strong></button>
       </form>
-      <button className="btn btn-success mx-2">Login</button>
+      <Link to='/login'><button className="btn btn-success mx-2">Login</button></Link>
     </div>
   </div>
 </nav>
