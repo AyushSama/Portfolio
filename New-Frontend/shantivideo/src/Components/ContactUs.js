@@ -1,4 +1,4 @@
-import React ,{useEffect,useContext} from 'react'
+import React from 'react'
 import '../Styles/ContactUs.css'
 import logo from './logo.png'
 

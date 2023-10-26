@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light border border-3"   style={{backgroundColor:'#F3F4ED' , color:'#186F65'}}>
+    <nav className="navbar navbar-expand-lg navbar-light border border-3"   style={{backgroundColor:'#F3F4ED' , color:'#186F65', width:'100vw'}}>
   <div className="container-fluid">
     <img className="navbar-brand" src={logo} alt={logo} style={{width:'60px'}}/>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -21,8 +21,8 @@ router.post(
             //Check if User Already Exists
             let user = await User.findOne({ email: req.body.email });
             if (user) {
-                console.log("User Already Exists");
-                return res.status(400).send({message:"User Already Exists"});
+                console.log("User Already Exists!!");
+                return res.status(400).json({message:"User Already Exists!!"});
             }
             // Hashing
             const salt = await bcrypt.genSalt(10);
@@ -32,7 +32,7 @@ router.post(
                 email: req.body.email,
                 password: secPass,
             });
-            res.send({ message:"User Created , Now please Login!"});
+            res.json({ message:"User Created , Now please Login!"});
         } catch (error) {
             res.status(400).send({message:"INTERNAL SERVER ERROR"});
             console.log(error);
@@ -50,7 +50,7 @@ router.post(
             //Return if Invalid
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-                return res.status(400).json({ errors: errors.array() });
+                return res.status(400).send({message:"INVALID CREDENTIALS!!", errors: errors.array() });
             }
             //Check if the credentials are Right
             let user = await User.findOne({ email: req.body.email });
