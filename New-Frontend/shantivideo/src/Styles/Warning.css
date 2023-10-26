@@ -1,55 +1,58 @@
-  :root {
-    --font-fam: "Be Vietnam Pro", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-fam: "Be Vietnam Pro", sans-serif;
+}
+#strip {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+#strip {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: yellow;
+  padding: 10px 0;
+  border: 3px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(15deg);
+  overflow: hidden;
+}
+.word {
+  padding: 0px 10px;
+  font-family: var(--font-fam);
+  text-transform: uppercase;
+  font-size: 4vmin;
+  font-weight: 600;
+  animation: strapmove 5s linear infinite forwards;
+  user-select: none;
+  text-wrap: nowrap;
+}
+@keyframes strapmove {
+  0% {
+    transform: translate(0%);
   }
-  #strip {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+  100% {
+    transform: translate(300%);
   }
-  #strip {
-    width: 200vw;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: yellow;
-    padding: 10px 0;
-    border-top: 3px solid #000;
-    border-bottom: 3px solid #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(15deg);
-    overflow: hidden;
-  }
-  .word {
-    padding: 0px 10px;
-    font-family: var(--font-fam);
-    text-transform: uppercase;
-    font-size: 4vmin;
-    font-weight: 600;
-    animation: strapmove 5s linear infinite forwards;
-    user-select: none;
-    text-wrap: nowrap;
-  }
-  @keyframes strapmove {
-    0% {
-      transform: translate(0%);
-    }
-    100% {
-      transform: translate(300%);
-    }
-  }
-  
-  #strip:nth-child(2) {
-    transform: translate(-50%, 60%) rotate(-15deg);
-    z-index: -1;
-  }
-  #strip:nth-child(3) {
-    transform: translate(-50%, -50%) rotate(-15deg);
-  }
-  #strip:nth-child(4) {
-    transform: translate(-50%, 60%) rotate(15deg);
-    animation-duration: 10s;
-  }
-  
+}
+
+#strip:nth-child(2) {
+  transform: translate(-50%, 60%) rotate(-15deg);
+  z-index: -1;
+}
+#strip:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+#strip:nth-child(4) {
+  transform: translate(-50%, 60%) rotate(15deg);
+  animation-duration: 10s;
+}
