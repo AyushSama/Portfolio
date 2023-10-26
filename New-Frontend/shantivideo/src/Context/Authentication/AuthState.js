@@ -72,9 +72,43 @@ const AuthState = (props)=>{
         }
     };
 
+    //Login for Admin
+
+    const handleAdminLogin = async () => {
+        console.log(authToken)
+        try {
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/admin/addadmin`;
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: credentials.name,
+                    email: credentials.email,
+                    password: credentials.password,
+                }),
+            });
+            let ele = await response.json();
+            localStorage.setItem('auth-token',ele.authToken);
+            setAuthToken(ele.authToken)
+
+            if(ele.message==='Admin Logged In!!')
+                alertt.updateAlert('success' , ele.message);
+            else if(ele.message==='Admin Already Exists!!')
+                alertt.updateAlert('warning' , ele.message);
+            else
+                alertt.updateAlert('danger', ele.message)
+
+        } catch (error) {
+            console.log(error);
+            alertt.updateAlert('danger','SERVER SIDE ISSUE!!');
+        }
+    };
+
 
     return (
-        <AuthContext.Provider value={{credentials,setCredentials,handleSignup ,handleLogin}}>
+        <AuthContext.Provider value={{credentials,setCredentials,handleSignup ,handleLogin , handleAdminLogin}}>
             {props.children}
         </AuthContext.Provider>
     )

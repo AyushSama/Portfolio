@@ -22,8 +22,8 @@ router.post(
             //Check if User Already Exists
             let user = await User.findOne({ email: req.body.email });
             if (user) {
-                console.log("User Already Exists");
-                return res.status(400).send({ message: "User Already Exists" });
+                console.log("Admin Already Exists");
+                return res.status(400).send({ message: "Admin Already Exists!!" });
             }
             // Hashing
             const salt = await bcrypt.genSalt(10);
