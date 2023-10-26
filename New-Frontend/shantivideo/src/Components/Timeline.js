@@ -1,18 +1,32 @@
-import React , {useContext, useEffect} from 'react'
+import React , {useContext, useEffect, useState} from 'react'
+import '../Styles/Warning.css'
 import AlertContext from '../Context/Alerts/AlertContext';
+import Warning from './Warning';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Timeline() {
 
-  const a = useContext(AlertContext);
+  const [contextVisibility , setContentVisibility] = useState(true);
+
+  const alertt = useContext(AlertContext);
+
+  const checkAuthToken = ()=>{
+      if(localStorage.getItem('auth-token')){
+          setContentVisibility(false);
+      }
+      else{
+          alertt.updateAlert('danger','Please Login First!');
+          setContentVisibility(true)
+      }
+  }
 
   useEffect(()=>{
-    a.updateAlert('success' , 'Welcome to the Timeline Page!!');
-    // eslint-disable-next-line
+      checkAuthToken();
   },[])
 
   return (
     <div>
-        timline
+        {contextVisibility && <Warning/>}
     </div>
   )
 }

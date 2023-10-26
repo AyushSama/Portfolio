@@ -10,6 +10,7 @@ import SignUp from "./Components/SignUp";
 import Timeline from "./Components/Timeline";
 import AlertState from "./Context/Alerts/AlertState";
 import AuthState from "./Context/Authentication/AuthState";
+import TimelineState from "./Context/Timeline/TimelineState";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     return (
         <>
             <AlertState>
+            <TimelineState>
             <AuthState>
                 <Router>
                     <Navbar />
@@ -32,6 +34,7 @@ function App() {
                     </Routes>
                 </Router>
             </AuthState>
+            </TimelineState>
             </AlertState>
         </>
     );
