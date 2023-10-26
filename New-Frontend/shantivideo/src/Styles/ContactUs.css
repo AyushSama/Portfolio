@@ -114,23 +114,17 @@ body {
   padding-right: 12px;
 }
 
-.contact-logo {
-  position: relative;
-  padding: 24px 32px 40px 32px;
-}
 
-.contact-logo::after {
-  position: absolute;
-  top: 64px;
-  left: 32px;
-  font-size: 14px;
-  color: #e4e4e7;
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1324px) {
   .contact-container {
     flex-direction: column;
     margin: 0;
+  }
+
+  @media (max-width: 500px) {
+    .contact-logo {
+      display: none;
+    }
   }
 
   .contact-form {

@@ -7,8 +7,8 @@ export default function ContactUs() {
     <div className="ayush">
 
       <section className="contact-container">
-        <div className="contact-logo">
-          <img src={logo} alt={logo} />
+        <div className="contact-logo text-center">
+          <img className='image' src={logo} alt={logo} />
         </div>
         <form className="contact-form">
           <div className="heading">
